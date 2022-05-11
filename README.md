@@ -1,18 +1,24 @@
 # Gender Recognition by Voice and Speech Analysis
 
+The analysis are inspired by Kaggle competition of gender recognition by voice. 
 Dataset Source: [Kaggle Datasets: Gender Recognition by Voice](https://www.kaggle.com/primaryobjects/voicegender)
 
 This dataset is released by [Kory Becker](https://github.com/primaryobjects) on [Kaggle](https://www.kaggle.com/) under [CC BY-NC-SA 4.0 License](https://creativecommons.org/licenses/by-nc-sa/4.0/).  
 
-This database was created to identify a voice as male or female, based upon acoustic properties of the voice and speech. The dataset consists of 3,168 recorded voice samples, collected from male and female speakers. The voice samples are pre-processed by acoustic analysis in R using the seewave and tuneR packages, with an analyzed frequency range of 0hz-280hz (human vocal range).
+Our Research has been done in [CREMA-D](https://github.com/CheyneyComputerScience/CREMA-D) dataset, especially, AudioWAV dataset inside.
+
+Dataset includes 7442 original clips from 91 actors.  These clips were from 48 male and 43 female actors between the ages of 20 and 74 coming from a variety of races and ethnicities (African America, Asian, Caucasian, Hispanic, and Unspecified). Actors spoke from a selection of 12 sentences. It means, that we focus on creating more general model, with non-one sentence speech.
+
+We used python feature extraction created by ourselves, with focusing the attributes, that are able to identify the features that indicate differences between male and female.
 
 # The Dataset
 
 ## The following acoustic properties of each voice are measured and included within the CSV:
 
 * **meanfreq  :** mean frequency (in kHz)
-* **sd	      :** standard deviation of frequency
+* **sd        :** standard deviation of frequency
 * **median    :** median frequency (in kHz)
+* **mode_val  :** mode of frequency
 * **Q25       :** first quantile (in kHz)
 * **Q75       :** third quantile (in kHz)
 * **IQR       :** interquantile range (in kHz)
@@ -20,12 +26,14 @@ This database was created to identify a voice as male or female, based upon acou
 * **kurt      :** kurtosis (see note in specprop description)
 * **sp.ent    :** spectral entropy
 * **sfm       :** spectral flatness
-* **mode      :** mode frequency
+* **fft_mode  :** mean mode frequency
+* **fft_max   :** max frequency
+* **fft_min   :** min frequency
 * **centroid  :** frequency centroid (see specprop)
 * **peakf     :** peak frequency (frequency with highest energy)
-* **meanfun   :** average of fundamental frequency measured across acoustic signal
-* **minfun    :** minimum fundamental frequency measured across acoustic signal
-* **maxfun    :** maximum fundamental frequency measured across acoustic signal
+* **meanf     :** average of fundamental frequency measured across acoustic signal
+* **minf      :** minimum fundamental frequency measured across acoustic signal
+* **maxf      :** maximum fundamental frequency measured across acoustic signal
 * **meandom   :** average of dominant frequency measured across acoustic signal
 * **mindom    :** minimum of dominant frequency measured across acoustic signal
 * **maxdom    :** maximum of dominant frequency measured across acoustic signal
